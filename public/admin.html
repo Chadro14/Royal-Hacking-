@@ -1,0 +1,37 @@
+``html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Royal Hacking</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #adminContent { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Espace Admin</h1>
+  <button id="loginBtn">Entrer le code Admin</button>
+
+  <div id="adminContent">
+    <h2>Bienvenue Admin</h2>
+    <p>Voici le contenu secret que seuls les admins peuvent voir.</p>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const adminContent = document.getElementById('adminContent');
+
+    loginBtn.addEventListener('click', () => {
+      const code = prompt("Entrez le code Admin :");
+      if (code === '252006') {  // Ton code admin ici
+
+adminContent.style.display = 'block';
+        alert("Accès autorisé.");
+      } else {
+        alert("Code incorrect !");
+      }
+    });
+  </script>
+</body>
+</html
