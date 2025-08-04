@@ -1,0 +1,35 @@
+*Fichier : `public/upload.html`*
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload fichier - Royal Hacking</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Uploader un fichier (non stocké)</h1>
+  <input type="file" id="fileInput" />
+  <pre id="fileContent" style="background:#eee; padding:10px; margin-top:20px;"></pre>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+const fileContent = document.getElementById('fileContent');
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        fileContent.textContent = e.target.result.substring(0, 1000) + '... (limité à 1000 caractères)';
+      };
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
+```
