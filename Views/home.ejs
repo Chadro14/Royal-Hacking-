@@ -1,6 +1,42 @@
-``html
+```html
 <!DOCTYPE html>
 <html>
 <head>
   <title>Royal Hacking 👑</title>
   <style>
+    body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
+    input, textarea, button { width: 100%; margin-bottom: 10px; }
+    .card { border: 1px solid #0f0; padding: 10px; margin-top: 10px; }
+    .links { margin-top: 20px; }
+    a.button { background: #0f0; color: #000; padding: 10px; display: inline-block; text-align: center; margin-bottom: 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>👑 Royal Hacking — Développé par Son Altesse Royal 🌹</h1>
+
+  <form action="/publish" method="POST">
+    <input type="password" name="code" placeholder="Code admin" required />
+    <textarea name="content" placeholder="Votre contenu..." required></textarea>
+    <button type="submit">Publier</button>
+  </form>
+
+  <% posts.forEach((post, index) => { %>
+    <div class="card">
+      <p><%= post.content %></p>
+      <small><%= post.date %></small>
+      <form action="/delete" method="POST">it
+<input type="hidden" name="code" placeholder="Code admin" required />
+        <input type="hidden" name="index" value="<%= index %>"/>
+        <button type="submit">🗑️ Supprimer</button>
+      </form>
+    </div>
+  <% }) %>
+
+  <div class="links">
+    <a class="button" href="https://wa.me/243905526836" target="_blank">📞 Écrire au développeur</a>
+    <a class="button" href="https://whatsapp.com/channel/0029Vb5xgT01CYoIzsmkzj1B" target="_blank">📣 Rejoindre la chaîne WhatsApp</a>
+  </div>
+</body>
+</html>
+```
+
