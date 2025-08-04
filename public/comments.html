@@ -1,0 +1,61 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Commentaires - Royal Hacking</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #comments { margin-top: 20px; }
+    .comment { border-bottom: 1px solid #ccc; padding: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Commentaires</h1>
+  <form id="commentForm">
+    <input type="text" id="username" placeholder="Votre nom" required />
+    <br/><br/>
+    <textarea id="comment" placeholder="Votre commentaire" required></textarea>
+    <br/><br/>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div id="comments"></div>
+
+  const div = document.createElement('div');
+        div.className = 'comment';
+        div.textContent = `username:{comment}`;
+        commentsDiv.appendChild(div);
+      });
+    }
+
+    commentForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+      if (!username || !comment) return;
+
+      comments.push({username, comment});
+      localStorage.setItem('comments', JSON.stringify(comments));
+      displayComments();
+
+      commentForm.reset();
+    });
+
+    // Afficher au chargement
+    displayComments();
+  </script>
+</body>
+</html>
+  <script>
+    const commentsDiv = document.getElementById('comments');
+    const commentForm = document.getElementById('commentForm');
+
+    // Charger les commentaires simulés depuis localStorage
+    let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    function displayComments() {
+      commentsDiv.innerHTML = '';
+      comments.forEach(({username, comment}) => {
