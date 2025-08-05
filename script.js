@@ -1,4 +1,4 @@
-```javascript
+javascript
 function publier() {
   const message = document.getElementById("message").value.trim();
   if (message === "") {
@@ -23,4 +23,3 @@ function publier() {
        document.getElementById("message").value = "";
      }
    }
-   ```
