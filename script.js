@@ -1,3 +1,4 @@
+
 javascript
 function publier() {
   const message = document.getElementById("message").value.trim();
@@ -12,8 +13,8 @@ function publier() {
 
   document.getElementById("message").value = "";
 }
-```
-```javascript
+
+javascript
    function publier() {
      const message = document.getElementById("message").value.trim();
      if (message) {
